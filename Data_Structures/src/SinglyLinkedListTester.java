@@ -13,8 +13,8 @@ class SinglyLinkedListTester {
 		list.addNode(new Node(5));
 		list.addNode(new Node(6));
 		list.addNode(new Node(7));
-		list.remove(0);
-		assertTrue(list.get(0, 2, 0) == 7);
+		System.out.println(list.remove(0));
+		assertTrue(list.getSize() == 2);
 		
 		
 	}

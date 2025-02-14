@@ -70,24 +70,28 @@ public class SinglyLinkedList {
 			return null;
 		}
 		else {
-			Node temp = head;
-			while(temp.next != get(index)) {
-				temp = temp.next;
+			size--;
+			if(index == 0) {
+				Node firstIndex = head;
+				head = head.next;
+				return firstIndex;
 			}
-			Node value = get(index);
-			add(get(index), null);
-			return value;
+			else {
+				return remove(index);
+			}
 		}
 	}
 	/*
 	 * Helper method for remove
 	 */
 	public Node remove(Node curr, int index, int currIndex) {
-		if(currIndex != index) {
-			return null;
-		}
-		else {
-			return remove(curr.next, index, currIndex + 1);
+		if(currIndex + 1 == index) {
+			Node storage = curr.next;
+			if(storage != null) {
+				curr.next = storage.next;
+			}
+			size--;
+			return storage;
 		}
 	}
 	public Node get(int index) {
